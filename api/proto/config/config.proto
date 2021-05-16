@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package anest.top.youli;
+
+option go_package = "config";
+
+message ServerConfig {
+  string name = 1;
+  string host = 2;
+}
+
+message MysqlConfig {
+  string dsn = 1;
+  int32 max_idle_conn = 2;
+  int32 max_open_conn = 3;
+  int32 max_life_minute = 4;
+  bool debug = 5;
+}
+
+message RedisConfig {
+  string host = 1;
+  string pass = 2;
+  int32 db = 3;
+}
+
+message Config {
+  ServerConfig server_conf = 1;
+  MysqlConfig mysql_conf = 2;
+  RedisConfig redis_conf = 3;
+}
